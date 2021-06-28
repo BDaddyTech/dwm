@@ -17,7 +17,7 @@ static char normbgcolor[]           = "#2e3440";
 static char normbordercolor[]       = "#2e3440";
 static char normfgcolor[]           = "#81a1c1";
 static char selfgcolor[]            = "#e5e9f0";
-static char selbordercolor[]        = "#00cd00";
+static char selbordercolor[]        = "#88c0d0";
 static char selbgcolor[]            = "#4c566a";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -29,8 +29,8 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd1[] = {"alacritty", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = {"alacritty", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -99,7 +99,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
@@ -299,3 +299,4 @@ static Button buttons[] = {
 	{ ClkTagBar,		0,		Button5,	shiftview,	{.i = 1} },
 	{ ClkRootWin,		0,		Button2,	togglebar,	{0} },
 };
+
